@@ -14,7 +14,9 @@ app.use(express.json());
 // Add routers
 app.use('/couriers', courierRouter)
 
+// Error Handler to send json response and http error
 app.use((err, req, res, next) => jsonErrorHandler(err, res))
+
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
 });

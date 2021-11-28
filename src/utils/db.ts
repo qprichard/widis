@@ -11,7 +11,12 @@ export const config: ConnectionOptions = {
     password: process.env.MYSQL_PASSWORD,
 }
 
-export function query<T>(sql: string, params: any[] = []): Promise<T | any> {
+/**
+ * Query method to the SQL Server
+ * @param sql
+ * @param params
+ */
+export function query(sql: string, params: any[] = []): Promise<any> {
     return createConnection(config)
         .then((c) => c.query(sql, params)
             .then((data) => data[0])
