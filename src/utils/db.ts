@@ -10,10 +10,9 @@ export const config: ConnectionOptions = {
     user: process.env.MYSQL_USER,
     password: process.env.MYSQL_PASSWORD,
 }
-const connection = createConnection(config);
 
 export function query<T>(sql: string, params: any[] = []): Promise<T | any> {
-    return connection
+    return createConnection(config)
         .then((c) => c.query(sql, params)
             .then((data) => data[0])
         );
