@@ -1,0 +1,12 @@
+version: "3"
+services:
+  mysql:
+    image: "mysql:8.0.27"
+    container_name: widis-database
+    volumes:
+      - "./resources/database.sql:/docker-entrypoint-initdb.d/database.sql"
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: widis
+    ports:
+      - "3307:3306"
