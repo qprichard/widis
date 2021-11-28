@@ -27,9 +27,20 @@ interface Courier {
 |POST|/couriers/unload|{ id: number, load: number }| Courier|
 |POST|/couriers/lookup|{ capacity_required: number }| [Courier, Courier, ...]|
 
-### Stop the application
 
-Once your application is up, you can stop it with `docker-compose down -rmi all`
+Once your application is up, you can stop it with `docker-compose down -rmi all`.
+
+### Start development environment
+
+To start development environment you will need to start mysql container on local.
+It will run on the port 3307 of your localhost. 
+
+run `docker-compose -f ./docker-compose-mysql.yaml up -d`
+then `npm run start:dev`
+
+You can access to the application on http://localhost:3000.
+
+To stop mysql run `docker-compose -f ./docker-compose-mysql.yaml up --rmi all`
 
 ### improvements & possibilities
 
